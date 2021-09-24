@@ -6,7 +6,7 @@ import player as p
 
 import physics_engan
 
-FPS = 100
+FPS = 60
 WIDTH, HIEGHT = 900, 500
 pygame.init()
 pygame.display.init()
@@ -18,12 +18,20 @@ RED = (255, 0, 0)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
+
+
+
+
 def draw_screen():
     player = p.Player()
+    
 
     Win.fill(BLACK)
 
     Win.blit(player.surf, (WIDTH/2, HIEGHT/2))
+
+
+    
     
 
     pygame.display.update()
@@ -37,6 +45,12 @@ def main():
             if events.type == pygame.QUIT:
                 pygame.quit()
                 exit()
+
+        
+        keys = pygame.key.get_pressed()
+
+        p.Player.update(1, keys)
+
 
         
 

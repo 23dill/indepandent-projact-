@@ -1,11 +1,12 @@
 import pygame
+#from pygame.constants import K_DOWN, K_LEFT, K_RIGHT, K_UP
 
 pygame.init()
 FPS = 100
 WIDTH, HIEGHT = 900, 500
-pygame.init()
 pygame.display.init()
-#Win = pygame.display.set_mode((WIDTH, HIEGHT))
+Win = pygame.display.set_mode((WIDTH, HIEGHT))
+
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -13,4 +14,8 @@ class Player(pygame.sprite.Sprite):
         self.surf = pygame.Surface((75, 25))
         self.surf.fill((255, 255, 255))
         self.rect = self.surf.get_rect()
+        
+        
 
+    def update(self, keys):
+       pass
