@@ -3,10 +3,11 @@ from sys import exit
 import pygame
 
 from charecter import Players
+from enamey import Enemy
 
 
 FPS = 27
-WIDTH, HIEGHT = 800, 800
+WIDTH, HIEGHT = 852, 480
 pygame.init()
 pygame.display.init()
 Win = pygame.display.set_mode((WIDTH, HIEGHT))
@@ -18,10 +19,12 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
 
-walkRight = [pygame.image.load(os.path.join('images', 'R1.png')), pygame.image.load(os.path.join('images','R2.png')), pygame.image.load(os.path.join('images','R3.png')), pygame.image.load(os.path.join('images','R4.png')), pygame.image.load(os.path.join('images','R5.png')), pygame.image.load(os.path.join('images','R6.png')), pygame.image.load(os.path.join('images','R7.png')), pygame.image.load(os.path.join('images','R8.png')), pygame.image.load(os.path.join('images','R9.png'))]
-walkLeft = [pygame.image.load(os.path.join('images','L1.png')), pygame.image.load(os.path.join('images','L2.png')), pygame.image.load(os.path.join('images','L3.png')), pygame.image.load(os.path.join('images','L4.png')), pygame.image.load(os.path.join('images','L5.png')), pygame.image.load(os.path.join('images','L6.png')), pygame.image.load(os.path.join('images','L7.png')), pygame.image.load(os.path.join('images','L8.png')), pygame.image.load(os.path.join('images','L9.png'))]
 bg = pygame.image.load(os.path.join('images','bg.jpg'))
 char = pygame.image.load(os.path.join('images','standing.png'))
+
+Enames = pygame.sprite.Group()
+All_Sprites = pygame.sprite.Group()
+
 
 
 
@@ -54,7 +57,7 @@ while run:
         man.x -= man.vel
         man.left = True
         man.right = False
-    elif keys[pygame.K_RIGHT] and man.x < 500 - man.width - man.vel:
+    elif keys[pygame.K_RIGHT] and man.x < WIDTH - man.width - man.vel:
         man.x += man.vel
         man.right = True
         man.left = False

@@ -38,5 +38,5 @@ class Players(object):
             self.walkCount +=1
         else:
             win.blit(char, (self.x,self.y))
-        self.hitbox = (self.x + 20, self.y, 28, 60)
+        self.hitbox = (self.x + 17, self.y, 28, 60)
         pygame.draw.rect(win, (255,0,0), self.hitbox,2)
